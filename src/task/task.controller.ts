@@ -10,4 +10,4 @@ export class TaskController {
     create(@Body() taskDTO: TaskDTO) {
         return this.taskService.create(taskDTO)
     }
-}
+} 
