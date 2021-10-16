@@ -17,4 +17,8 @@ export class TaskService {
 
         return task;
     }
+
+    findAll(): ITask[] {
+        return this.tasks;
+    }
 }
