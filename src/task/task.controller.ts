@@ -8,13 +8,10 @@ export class TaskController {
 
     @Post()
     create(@Body() taskDTO: TaskDTO) {
-        // return this.taskService.create(taskDTO)
-        return new Promise((resolve, reject) => {
-            setTimeout(() => reject('reject was detected'), 2000);
-        });
-
         // throw new HttpException('error http exception', HttpStatus.BAD_REQUEST)
         // throw new BadRequestException('Bad request exception');
+        
+         return this.taskService.create(taskDTO)
     }
 
     @Get()
