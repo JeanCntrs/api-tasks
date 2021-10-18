@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { BadRequestException, Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Post, Put } from '@nestjs/common';
 import { TaskDTO } from './dto/task.dto';
 import { TaskService } from './task.service';
 
@@ -8,7 +8,13 @@ export class TaskController {
 
     @Post()
     create(@Body() taskDTO: TaskDTO) {
-        return this.taskService.create(taskDTO)
+        // return this.taskService.create(taskDTO)
+        return new Promise((resolve, reject) => {
+            setTimeout(() => reject('reject was detected'), 2000);
+        });
+
+        // throw new HttpException('error http exception', HttpStatus.BAD_REQUEST)
+        // throw new BadRequestException('Bad request exception');
     }
 
     @Get()
